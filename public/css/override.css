@@ -1,0 +1,53 @@
+.fullwidth {
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.bottom {
+	position: fixed;
+	bottom: 0px;
+}
+
+.generalpadding {
+	height: 70px;
+}
+
+.center-text {
+	margin: auto;
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+}
+
+.center-img {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 0px 0px 0px;
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {float:none;}
+
+.badge-expense {
+	color: black;
+	background-color: #F0F0F0;
+}
+
+.active-title {
+	background-color: #F0F0F0;
+	color: black;
+}
+
+.active-green {
+	background-color: #3FB618;
+}
+
+.active-green-badge {
+	background-color: #2F8912;
+	color: white;
+}

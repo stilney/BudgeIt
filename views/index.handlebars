@@ -1,0 +1,84 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/boostrap.min.css">
+	<link rel="stylesheet" href="css/override.css">
+
+	<title>Budge-It!</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Budge-It!</a>
+		</div>
+	</nav>
+
+	<!-- So page doesnt begin behind the navbar -->
+	<div class="generalpadding"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3 class="center-text">Overview</h3><br>
+						<img class="img-responsive center-block" src="img/piechart.png"/>
+					</div>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<span class="badge active-green-badge">$5000</span>
+						<b>Total</b>
+					</li>
+					<li class="list-group-item">
+						<span class="badge badge-expense">- $2000</span>
+						Food
+					</li>
+					<li class="list-group-item">
+						<span class="badge badge-expense">- $2000</span>
+						Bills
+					</li>
+					<li class="list-group-item">
+						<span class="badge badge-expense">- $400</span>
+						Travel
+					</li>
+					<li class="list-group-item">
+						<span class="badge badge-expense">- $400</span>
+						Luxury
+					</li>
+					<li class="list-group-item active-green">
+						<span class="badge active-green-badge">$200</span>
+						<b>Under Budget</b>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- So page doesn't cut off before the footer menu -->
+	<div class="generalpadding"></div>
+
+	<!-- Footer menu -->
+	<div class="col-xs-12 fullwidth bottom">
+		<div class="btn-group btn-group-justified">
+			<a href="/" class="btn btn-default active">
+				<span class="glyphicon glyphicon-th-list"></span><br>
+				Overview
+			</a>
+			<a href="expenses" class="btn btn-default">
+				<span class="glyphicon glyphicon-usd"></span><br>
+				Expensess
+			</a>
+			<a href="budget" class="btn btn-default">
+				<span class="glyphicon glyphicon-object-align-bottom"></span><br>
+				Budget
+			</a>
+			<a href="wishlist" class="btn btn-default">
+				<span class="glyphicon glyphicon-star"></span><br>
+				Wishlist
+			</a>
+		</div>
+	</div>
+
+</body>
+</html>
