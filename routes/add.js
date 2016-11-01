@@ -1,3 +1,4 @@
+/*
 var data = require("../data.json");
 
 exports.addFriend = function(req, res) {
@@ -12,4 +13,55 @@ exports.addFriend = function(req, res) {
 
 		res.render('index', data);
   console.log("yay, addFriend just ran!");
+}
+
+*/
+
+var data = require("../data.json");
+
+exports.addExpense = function(req, res) {
+	var price = req.query.price;
+	var name = req.query.name;
+	var category = req.query.category;
+	
+	if(category == "food")
+	{
+		data.food.push({
+			"name": name,
+			"price": price
+					
+		});
+	}
+	else if (category == "utilities")
+	{
+		data.utilities.push({
+			"name": name,
+			"price": price
+		});
+	}
+	else if (category == "bills")
+	{
+		data.bills.push({
+			"name": name,
+			"price": price
+		});
+	}
+	else if (category == "travel")
+	{
+		data.travel.push({
+			"name": name,
+			"price": price
+		});
+	}
+	else if (category == "luxury")
+	{
+		data.luxury.push({
+			"name": name,
+			"price": price
+		});
+	}
+	
+
+  res.render('expenses', data);
+  console.log("yay, addExpense just ran!");
 }

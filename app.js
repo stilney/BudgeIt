@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var expenses = require('./routes/expenses');
 var wishlist = require('./routes/wishlist');
 var budget = require('./routes/budget');
+var add = require('./routes/add');
 // Example route
 // var user = require('./routes/user');
 
@@ -42,6 +43,8 @@ app.get('/', index.view);
 app.get('/expenses', expenses.viewExpenses);
 app.get('/wishlist', wishlist.viewWishlist);
 app.get('/budget', budget.viewBudget);
+
+app.get('/add', add.addExpense);
 // Example route
 // app.get('/users', user.list);
 

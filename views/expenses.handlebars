@@ -22,7 +22,24 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3 class="center-text">Expenses</h3><br>
-						<a href="#" class="btn btn-success btn-lg btn-block">New Expense</a> <br>
+
+						<form class="form-inline" id="addExpenseForm" role="form" method="get" action="/add">
+						  <div class="form-group">
+						  	<input type="text" class="form-control" id="name" placeholder="Name" name="name">
+						  </div>
+						  <div class="form-group">
+						    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price">
+						  </div>
+						  <select type="text" id="category" name="category" class="form-control">
+							  <option>food</option>
+							  <option>utilities</option>
+							  <option>travel</option>
+							  <option>luxury</option>
+							  <option>bills</option>
+						  </select>
+						  <button type="submit" class="btn btn-success btn-lg btn-block">Add Expense</button>
+						</form>
+						
 						<ul class="list-group">
 							<li class="list-group-item active-title">
 								<span class="badge badge-expense">$20 Left / $2000</span>
