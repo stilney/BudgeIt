@@ -1,4 +1,5 @@
+var data = require('../data.json');
 
 exports.viewExpenses = function(req, res){
-	res.render('expenses');
+	res.render('expenses', data);
 };
