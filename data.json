@@ -1,17 +1,56 @@
 
 {
+	
 	"food": [
 		{
 			"name": "safeway",
 			"price": 5.00
 		},
 		{
-			"name": "McDonalds",
-			"price": 3.50
+			"name": "Vons",
+			"price": 23.25
+		}
+		],
+	"utilities": [
+		{
+			"name": "electricity",
+			"price": 52.00
 		},
 		{
-			"name": "Starbucks",
-			"price": 5.00
+			"name": "internet",
+			"price": 23.00
 		}
-	]
+		],
+	"bills": [
+		{
+			"name": "cell phone",
+			"price": 52.00
+		},
+		{
+			"name": "car payment",
+			"price": 23.00
+		}
+		],
+	"travel": [
+		{
+			"name": "safeway",
+			"price": 5.00
+		},
+		{
+			"name": "Vons",
+			"price": 23.25
+		}
+		],
+	"luxury": [
+		{
+			"name": "electricity",
+			"price": 52.00
+		},
+		{
+			"name": "internet",
+			"price": 23.00
+		}
+		]
+
+	
 }
