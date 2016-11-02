@@ -1,18 +1,109 @@
 <html>
-<head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
+<script>
+/*
+	var data = require("../data.json");
+	console.log("data.food.length: " + data.food.length);
+	var index;
+	var foodTotal = 0;
+	for (index = 0; index < data.food.length; ++index) {
+    console.log(data.food[index].name + " " + data.food[index].price );
+    foodTotal = foodTotal + data.food[index].price;
+}
+
+$(document).ready(function () {
+        	
+        	console.log("data.food.length: " + data.food.length);
+            $("#foodTotal").text(data);
+        });
+
+	
+	var json = require('../data.json');
+	var data = JSON.parse('../data.json');
+	console.log("data.food.length SUPER: " + data.food.length);
+*/
+</script>
+<head>
 	<link rel="stylesheet" href="css/boostrap.min.css">
 	<link rel="stylesheet" href="css/override.css">
 
 	<title>Budge-It!</title>
-
 </head>
 <body>
 
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Budge-It!</a>
+		</div>
+	</nav>
+
+	<!-- So page doesnt begin behind the navbar -->
 	<div class="generalpadding"></div>
 
 	<div class="container">
-		<h3>Budget</h3>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<h3 class="center-text">Budget</h3><br>
+						<button type="submit" class="btn btn-success btn-lg btn-block">Add Budget Category</button>
+						
+						
+						<ul class="list-group">
+							<li class="list-group-item active-title">
+								<h4 id="foodTotal" class="badge badge-expense"></h4>
+								<b>Food</b>
+							</li>
+							
+							
+						
+							
+							<li class="list-group-item active-title">
+								<span class="badge badge-expense">$0 Left / $2000</span>
+								<b>Bills</b>
+							</li>
+							
+							
+						
+
+							<li class="list-group-item active-title">
+								<span class="badge badge-expense">$0 Left / $2000</span>
+								<b>Utilities</b>
+							</li>
+							
+						
+
+							<li class="list-group-item active-title">
+								<span class="badge badge-expense">$20 Left / $2000</span>
+								<b>Travel</b>
+							</li>
+						
+							
+							
+							
+							<li class="list-group-item active-title">
+								<span class="badge badge-expense">$0 Left / $2000</span>
+								<b>Luxury</b>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="progress" style="height: 50px">
+  <div class="progress-bar progress-bar-danger" style="width: 35%">
+    <span style="line-height: 40px; font-size: 20px;">Spent: $500</span>
+  </div>
+  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 45%">
+    <span style="line-height: 40px; font-size: 20px;">Allocated: $600</span>
+  </div>
+  <div class="progress-bar progress-bar-success" style="width: 20%">
+    <span style="line-height: 40px; font-size: 20px;">Surplus: $300</span>
+  </div>
+</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- So page doesn't cut off before the footer menu -->
