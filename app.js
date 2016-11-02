@@ -13,6 +13,7 @@ var expenses = require('./routes/expenses');
 var wishlist = require('./routes/wishlist');
 var budget = require('./routes/budget');
 var add = require('./routes/add');
+var login = require('./routes/login');
 // Example route
 // var user = require('./routes/user');
 
@@ -40,6 +41,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/login', login.viewLogin);
 app.get('/expenses', expenses.viewExpenses);
 app.get('/wishlist', wishlist.viewWishlist);
 app.get('/budget', budget.viewBudget);
