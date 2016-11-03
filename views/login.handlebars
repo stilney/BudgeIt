@@ -9,10 +9,46 @@
 </head>
 <body>
 
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Budge-It!</a>
+		</div>
+	</nav>
+
 	<div class="generalpadding"></div>
 
 	<div class="container">
-		<h3>Budget</h3>
+		<form>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h3 class="center-text">Sign In</h3><br>
+					<div class="form-group row">
+						<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-5">
+						</div>
+						<div class="col-sm-1">
+							<button type="submit" class="btn btn-primary buttonCenter">Sign in</button>
+						</div>
+						<div class="col-sm-1">
+							<button type="submit" class="btn btn-primary buttonCenter">Sign Up</button>
+						</div>
+						<div class="col-sm-5">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 
 	<!-- So page doesn't cut off before the footer menu -->
@@ -21,7 +57,7 @@
 	<!-- Footer menu -->
 	<div class="col-xs-12 fullwidth bottom">
 		<div class="btn-group btn-group-justified">
-			<a href="/" class="btn btn-default">
+			<a href="overview" class="btn btn-default">
 				<span class="glyphicon glyphicon-th-list"></span><br>
 				Overview
 			</a>

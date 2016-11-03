@@ -51,3 +51,8 @@
 	background-color: #2F8912;
 	color: white;
 }
+
+.buttonCenter {
+	margin:auto;
+  	display:block;
+}
