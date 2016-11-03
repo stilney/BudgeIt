@@ -1,4 +1,29 @@
 <html>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+/*
+	var data = require("../data.json");
+	console.log("data.food.length: " + data.food.length);
+	var index;
+	var foodTotal = 0;
+	for (index = 0; index < data.food.length; ++index) {
+    console.log(data.food[index].name + " " + data.food[index].price );
+    foodTotal = foodTotal + data.food[index].price;
+}
+
+$(document).ready(function () {
+        	
+        	console.log("data.food.length: " + data.food.length);
+            $("#foodTotal").text(data);
+        });
+
+	
+	var json = require('../data.json');
+	var data = JSON.parse('../data.json');
+	console.log("data.food.length SUPER: " + data.food.length);
+*/
+</script>
 <head>
 	<link rel="stylesheet" href="css/boostrap.min.css">
 	<link rel="stylesheet" href="css/override.css">
@@ -42,7 +67,7 @@
 						
 						<ul class="list-group">
 							<li class="list-group-item active-title">
-								<span class="badge badge-expense">$20 Left / $2000</span>
+								<h4 id="foodTotal" class="badge badge-expense"></h4>
 								<b>Food</b>
 							</li>
 							{{#each food}}
@@ -123,5 +148,6 @@
 		</div>
 	</div>
 
+<script>src="/public/js/totals.js"</script>
 </body>
 </html>
