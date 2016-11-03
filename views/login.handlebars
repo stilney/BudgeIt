@@ -28,6 +28,8 @@
 							<input type="email" class="form-control" id="inputEmail" placeholder="Email">
 						</div>
 					</div>
+
+					<form class="form-inline" id="addExpenseForm" role="form" action="/overview">
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 						<div class="col-sm-10">
@@ -38,7 +40,7 @@
 						<div class="col-sm-5">
 						</div>
 						<div class="col-sm-1">
-							<button type="submit" class="btn btn-primary buttonCenter">Sign in</button>
+							<a type="submit" class="btn btn-primary buttonCenter" href='/overview'>Sign in</a>
 						</div>
 						<div class="col-sm-1">
 							<button type="submit" class="btn btn-primary buttonCenter">Sign Up</button>
@@ -46,6 +48,8 @@
 						<div class="col-sm-5">
 						</div>
 					</div>
+					</form>
+
 				</div>
 			</div>
 		</form>
@@ -65,10 +69,7 @@
 				<span class="glyphicon glyphicon-usd"></span><br>
 				Expenses
 			</a>
-			<a href="budget" class="btn btn-default active">
-				<span class="glyphicon glyphicon-object-align-bottom"></span><br>
-				Budget
-			</a>
+			
 			<a href="wishlist" class="btn btn-default">
 				<span class="glyphicon glyphicon-star"></span><br>
 				Wishlist
