@@ -12,7 +12,37 @@
 	<div class="generalpadding"></div>
 
 	<div class="container">
-		<h3>Wishlist</h3>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3 class="center-text">Wishlist</h3><br>
+
+						<form class="form-inline" id="addExpenseForm" role="form" method="get" action="/addWish">
+						  <div class="form-group">
+						  	<input type="text" class="form-control" id="name" placeholder="Name" name="name">
+						  </div>
+						  <div class="form-group">
+						    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price">
+						  </div>
+						  <button type="submit" class="btn btn-success btn-lg btn-block">Add to Wishlist</button>
+						</form>
+						
+						<ul class="list-group">
+							<li class="list-group-item active-title">
+								<h4 id="foodTotal" class="badge badge-expense"></h4>
+								<b>Wishlist</b>
+							</li>
+							{{#each wishlist}}
+							<li class="list-group-item">
+								&nbsp; {{name}} ${{price}} 
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- So page doesn't cut off before the footer menu -->
@@ -27,12 +57,9 @@
 			</a>
 			<a href="expenses" class="btn btn-default">
 				<span class="glyphicon glyphicon-usd"></span><br>
-				Expensess
+				Expenses
 			</a>
-			<a href="budget" class="btn btn-default">
-				<span class="glyphicon glyphicon-object-align-bottom"></span><br>
-				Budget
-			</a>
+			
 			<a href="wishlist" class="btn btn-default active">
 				<span class="glyphicon glyphicon-star"></span><br>
 				Wishlist

@@ -18,9 +18,20 @@ exports.addFriend = function(req, res) {
 */
 
 var data = require("../data.json");
+var wishlistJSON = require("../wishlist.json");
 
+exports.addWishlist = function(req, res) {
 
+	var price = req.query.price;
+	var name = req.query.name;
 
+	wishlistJSON.wishlist.push({
+		"name": name,
+		"price": price
+	});
+
+	res.render('wishlist', wishlistJSON);
+}
 
 exports.addExpense = function(req, res) {
 	var price = req.query.price;
@@ -71,6 +82,8 @@ exports.addExpense = function(req, res) {
 	for (index = 0; index < data.food.length; ++index) {
     console.log(data.food[index].name + " " + data.food[index].price );
     foodTotal = foodTotal + data.food[index].price;
+
+	  res.render('expenses', data);
 }
 
 	
