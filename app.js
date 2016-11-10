@@ -14,6 +14,7 @@ var wishlist = require('./routes/wishlist');
 var budget = require('./routes/budget');
 var add = require('./routes/add');
 var login = require('./routes/login');
+var overview = require('./routes/overview');
 // Example route
 // var user = require('./routes/user');
 
@@ -34,14 +35,17 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/overview', overview.auth);
+/*
 app.get('/overview', function (req, res, next) {
 	// if (req.path == '/') return next();
-	
+
 	if (!req.session.auth)
 		res.redirect('/');
 
 	next();
 })
+*/
 
 // development only
 if ('development' == app.get('env')) {
@@ -59,6 +63,7 @@ app.get('/budget', budget.viewBudget);
 
 app.get('/add', add.addExpense);
 app.get('/addWish', add.addWishlist);
+
 // Example route
 // app.get('/users', user.list);
 
