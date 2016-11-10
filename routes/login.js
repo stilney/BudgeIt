@@ -9,7 +9,7 @@ exports.authenticateAccount = function(req,res) {
 	var accounts = data.accounts;
 	for (var i = 0; i < accounts.length; i++) {
 		if (username == accounts[i].email && password == accounts[i].password) {
-			console.log("the same");
+			req.session.auth = true;
 			res.send(200);
 			return;
 		}
