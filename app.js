@@ -62,14 +62,12 @@ app.get('/wishlist', wishlist.viewWishlist);
 app.get('/budget', budget.viewBudget);
 
 app.get('/add', add.addExpense);
-//<<<<<<< HEAD
 app.get('/updateBudget', add.updateBudget);
 app.get('/updateBalance', add.updateBalance);
 app.get('/calculateTotals', overview.calculateTotals);
-//=======
 app.get('/addWish', add.addWishlist);
 
-//>>>>>>> a0f8a97fe23bb8b9b67550fbb3d24692d7acf421
+
 // Example route
 // app.get('/users', user.list);
 
