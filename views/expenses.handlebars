@@ -1,32 +1,32 @@
 <html>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<script>
-/*
-	var data = require("../data.json");
-	console.log("data.food.length: " + data.food.length);
-	var index;
-	var foodTotal = 0;
-	for (index = 0; index < data.food.length; ++index) {
-    console.log(data.food[index].name + " " + data.food[index].price );
-    foodTotal = foodTotal + data.food[index].price;
-}
-
-$(document).ready(function () {
-        	
-        	console.log("data.food.length: " + data.food.length);
-            $("#foodTotal").text(data);
-        });
-
-	
-	var json = require('../data.json');
-	var data = JSON.parse('../data.json');
-	console.log("data.food.length SUPER: " + data.food.length);
-*/
-</script>
 <head>
 	<link rel="stylesheet" href="css/boostrap.min.css">
 	<link rel="stylesheet" href="css/override.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $("#editFood").click(function(){
+	        $("#editFoodForm").show();
+	    });
+
+	    $("#editBills").click(function(){
+	        $("#editBillsForm").show();
+	    });
+
+	    $("#editUtilities").click(function(){
+	        $("#editUtilitiesForm").show();
+	    });
+
+	    $("#editTravel").click(function(){
+	        $("#editTravelForm").show();
+	    });
+
+	    $("#editLuxury").click(function(){
+	        $("#editLuxuryForm").show();
+	    });
+	});
+	</script>
 
 	<title>Budge-It!</title>
 </head>
@@ -37,6 +37,8 @@ $(document).ready(function () {
 			<a class="navbar-brand" href="#">Budge-It!</a>
 		</div>
 	</nav>
+
+
 
 	<!-- So page doesnt begin behind the navbar -->
 	<div class="generalpadding"></div>
@@ -55,6 +57,7 @@ $(document).ready(function () {
 						  <div class="form-group">
 						    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price">
 						  </div>
+
 						  <select type="text" id="category" name="category" class="form-control">
 							  <option>food</option>
 							  <option>utilities</option>
@@ -67,8 +70,17 @@ $(document).ready(function () {
 						
 						<ul class="list-group">
 							<li class="list-group-item active-title">
-								<span class="badge badge-expense">$0 Left / $2000</span>
 								<b>Food</b>
+								<span class="glyphicon glyphicon-pencil" id="editFood" style="float:right;"></span>
+								<span class="badge badge-expense" id="food">${{totals.food}}/${{budgets.food}}</span>
+
+								<form style="display:none" class="form-inline" id="editFoodForm" role="form" method="get" action="/updateBudget">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Food Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="food">
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
 							</li>
 							{{#each food}}
 							<li class="list-group-item">
@@ -77,8 +89,17 @@ $(document).ready(function () {
 							{{/each}}
 							
 							<li class="list-group-item active-title">
-								<span class="badge badge-expense">$0 Left / $2000</span>
 								<b>Bills</b>
+								<span class="glyphicon glyphicon-pencil" id="editBills" style="float:right;"></span>
+								<span class="badge badge-expense" id="bills">${{totals.bills}}/${{budgets.bills}}</span>
+
+								<form style="display:none" class="form-inline" id="editBillsForm" role="form" method="get" action="/updateBudget">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Bills Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="bills">
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
 							</li>
 							{{#each bills}}
 							<li class="list-group-item">
@@ -87,8 +108,17 @@ $(document).ready(function () {
 							{{/each}}
 
 							<li class="list-group-item active-title">
-								<span class="badge badge-expense">$0 Left / $2000</span>
 								<b>Utilities</b>
+								<span class="glyphicon glyphicon-pencil" id="editUtilities" style="float:right;"></span>
+								<span class="badge badge-expense" id="utilities">${{totals.utilities}}/${{budgets.utilities}}</span>
+
+								<form style="display:none" class="form-inline" id="editUtilitiesForm" role="form" method="get" action="/updateBudget">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Utilities Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="utilities">
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
 							</li>
 							{{#each utilities}}
 							<li class="list-group-item">
@@ -97,8 +127,17 @@ $(document).ready(function () {
 							{{/each}}
 
 							<li class="list-group-item active-title">
-								<span class="badge badge-expense">$20 Left / $2000</span>
 								<b>Travel</b>
+								<span class="glyphicon glyphicon-pencil" id="editTravel" style="float:right;"></span>
+								<span class="badge badge-expense" id="travel">${{totals.travel}}/${{budgets.travel}}</span>
+
+								<form style="display:none" class="form-inline" id="editTravelForm" role="form" method="get" action="/updateBudget">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Travel Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="travel">
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
 							</li>
 							{{#each travel}}
 							<li class="list-group-item">
@@ -107,8 +146,17 @@ $(document).ready(function () {
 							{{/each}}
 							
 							<li class="list-group-item active-title">
-								<span class="badge badge-expense">$0 Left / $2000</span>
 								<b>Luxury</b>
+								<span class="glyphicon glyphicon-pencil" id="editLuxury" style="float:right;"></span>
+								<span class="badge badge-expense" id="luxury">${{totals.luxury}}/${{budgets.luxury}}</span>
+
+								<form style="display:none" class="form-inline" id="editLuxuryForm" role="form" method="get" action="/updateBudget">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Luxury Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="luxury">
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
 							</li>
 							{{#each luxury}}
 							<li class="list-group-item">

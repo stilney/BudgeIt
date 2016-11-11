@@ -33,8 +33,38 @@ exports.addWishlist = function(req, res) {
 	res.render('wishlist', wishlistJSON);
 }
 
+exports.updateBudget = function(req, res){
+	var budget = parseFloat(req.query.budget);
+	var category = req.query.category;
+
+	if(category == "food")
+	{
+		data.budgets.food = budget;
+	}
+	else if(category == "bills")
+	{
+		data.budgets.bills = budget;
+	}
+	else if(category == "utilities")
+	{
+		data.budgets.utilities = budget;
+	}
+	else if(category == "travel")
+	{
+		data.budgets.travel = budget;
+	}
+	else if(category == "luxury")
+	{
+		data.budgets.luxury = budget;
+	}
+
+	console.log("updateBudget called on budget: " + budget + " category: " + category);
+
+	res.render('expenses', data);
+}
+
 exports.addExpense = function(req, res) {
-	var price = req.query.price;
+	var price = parseFloat(req.query.price);
 	var name = req.query.name;
 	var category = req.query.category;
 	
@@ -45,6 +75,9 @@ exports.addExpense = function(req, res) {
 			"price": price
 					
 		});
+
+		data.totals.food += price;
+		
 	}
 	else if (category == "utilities")
 	{
@@ -52,6 +85,8 @@ exports.addExpense = function(req, res) {
 			"name": name,
 			"price": price
 		});
+
+		data.totals.utilities += price;
 	}
 	else if (category == "bills")
 	{
@@ -59,6 +94,8 @@ exports.addExpense = function(req, res) {
 			"name": name,
 			"price": price
 		});
+
+		data.totals.bills += price;
 	}
 	else if (category == "travel")
 	{
@@ -66,6 +103,8 @@ exports.addExpense = function(req, res) {
 			"name": name,
 			"price": price
 		});
+
+		data.totals.travel += price;
 	}
 	else if (category == "luxury")
 	{
@@ -73,6 +112,8 @@ exports.addExpense = function(req, res) {
 			"name": name,
 			"price": price
 		});
+
+		data.totals.luxury += price;
 	}
 
 

@@ -5,5 +5,19 @@
 	"utilities": [],
 	"bills": [],
 	"travel": [],
-	"luxury": []
+	"luxury": [],
+	"totals": {
+			"food": 0.0,
+			"utilities": 0.0,
+			"bills": 0.0,
+			"travel": 0.0,
+			"luxury": 0.0
+	},
+	"budgets": {
+			"food": 0.0,
+			"utilities": 0.0,
+			"bills": 0.0,
+			"travel": 0.0,
+			"luxury": 0.0
+	}
 }
