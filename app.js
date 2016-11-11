@@ -14,6 +14,7 @@ var wishlist = require('./routes/wishlist');
 var budget = require('./routes/budget');
 var add = require('./routes/add');
 var login = require('./routes/login');
+var overview = require('./routes/overview');
 // Example route
 // var user = require('./routes/user');
 
@@ -34,6 +35,18 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/overview', overview.auth);
+/*
+app.get('/overview', function (req, res, next) {
+	// if (req.path == '/') return next();
+
+	if (!req.session.auth)
+		res.redirect('/');
+
+	next();
+})
+*/
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -41,6 +54,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', login.viewLogin);
+app.post('/login', login.authenticateAccount);
 app.get('/overview', index.view);
 
 app.get('/expenses', expenses.viewExpenses);
@@ -48,8 +62,14 @@ app.get('/wishlist', wishlist.viewWishlist);
 app.get('/budget', budget.viewBudget);
 
 app.get('/add', add.addExpense);
+//<<<<<<< HEAD
 app.get('/updateBudget', add.updateBudget);
 app.get('/updateBalance', add.updateBalance);
+app.get('/calculateTotals', overview.calculateTotals);
+//=======
+app.get('/addWish', add.addWishlist);
+
+//>>>>>>> a0f8a97fe23bb8b9b67550fbb3d24692d7acf421
 // Example route
 // app.get('/users', user.list);
 

@@ -53,6 +53,18 @@
 }
 
 .buttonCenter {
-	margin:auto;
+	margin:0 auto;
   	display:block;
+}
+
+.category-title {
+	font-size: 14px;
+}
+
+.category-expense {
+	font-size: 26px;
+}
+
+.total-budget-left {
+	font-size: 30px;
 }

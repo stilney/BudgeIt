@@ -1,0 +1,16 @@
+{
+	"accounts" : [
+		{
+			"email": "sabansal@ucsd.edu",
+			"password": "cookie123"
+		},
+		{
+			"email": "stilney@ucsd.edu",
+			"password": "hotcheetos1996"
+		},
+		{
+			"email": "aabadill@ucsd.edu",
+			"password": "kanye4prez"
+		}
+	]
+}

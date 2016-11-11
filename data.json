@@ -23,5 +23,23 @@
 	"bank": {
 			"balance": 0.0,
 			"remaining": 0.0
-	}
+	},
+	"percentage": {
+			"food": 0.0,
+			"utilities": 0.0,
+			"bills": 0.0,
+			"travel": 0.0,
+			"luxury": 0.0
+	},
+	
+
+      "total" : [],
+      "totalLeft" : [],
+      "category1" : [],
+      "category2" : [],
+      "category3" : [],
+      "category4" : [],
+      "category5" : []
+  
+    
 }

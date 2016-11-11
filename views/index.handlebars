@@ -1,5 +1,8 @@
 <html>
 <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="stylesheet" href="css/boostrap.min.css">
 	<link rel="stylesheet" href="css/override.css">
 
@@ -33,9 +36,89 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3 class="center-text">Overview</h3><br>
-						<img class="img-responsive center-block" src="img/piechart.png"/>
+
+						<div class="progress">
+							{{#each category1}}
+						  <div class="progress-bar progress-bar-primary" style="width: {{ percentage }}%"></div>
+							{{/each}}
+							{{#each category2}}
+						  <div class="progress-bar progress-bar-success" style="width: {{ percentage }}%"></div>
+							{{/each}}
+							{{#each category3}}
+						  <div class="progress-bar progress-bar-warning" style="width: {{ percentage }}%"></div>
+							{{/each}}
+							{{#each category4}}
+						  <div class="progress-bar progress-bar-danger" style="width: {{ percentage }}%"></div>
+							{{/each}}
+							{{#each category5}}
+						  <div class="progress-bar progress-bar-info" style="width: {{ percentage }}%"></div>
+							{{/each}}
+						</div>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<td colspan="5" align="center">Total Expenses</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td width="20%" align="center">
+										<span class="category-title text-primary">Food</span><br>
+										{{#each category1}}
+											<span class="category-expense">${{total}}</span>
+										{{/each}}
+									</td>
+									<td width="20%" align="center">
+										<span class="category-title text-success">Utilities</span><br>
+										{{#each category2}}
+											<span class="category-expense">${{total}}</span>
+										{{/each}}
+									</td>
+									<td width="20%" align="center">
+										<span class="category-title text-warning">Bills</span><br>
+										{{#each category3}}
+											<span class="category-expense">${{total}}</span>
+										{{/each}}
+									</td>
+									<td width="20%" align="center">
+										<span class="category-title text-danger">Travel</span><br>
+										{{#each category4}}
+											<span class="category-expense">${{total}}</span>
+										{{/each}}
+									</td>
+									<td width="20%" align="center">
+										<span class="category-title text-info">Luxury</span><br>
+										{{#each category5}}
+											<span class="category-expense">${{total}}</span>
+										{{/each}}
+									</td>
+								</tr>
+								<tr>
+									<td colspan="5" align="center" height="100px">
+
+										<span class="total-budget-left">${{totalLeft}}</span><br>
+										Left in Budget</td>
+								</tr>
+								<tr>
+									<td colspan="5" align="center" height="100px">
+										<span class="glyphicon glyphicon-pencil" id="editBalance" style="float:right;"></span>
+										<span class="total-budget-left">${{bank.balance}}</span><br>
+										Account Balance</td>
+								</tr>
+							</tbody>
+						</table>
+						<form style="display:none" class="form-inline" id="editBalanceForm" role="form" method="get" action="/calculateTotals">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="balance" placeholder="Account Balance" name="balance">
+										
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
 					</div>
 				</div>
+				<!--
+<<<<<<< HEAD
 				<ul class="list-group">
 					<li class="list-group-item">
 
@@ -75,6 +158,9 @@
 						<b>Budget remaining</b>
 					</li>
 				</ul>
+=======
+>>>>>>> a0f8a97fe23bb8b9b67550fbb3d24692d7acf421
+-->
 			</div>
 		</div>
 	</div>
@@ -93,7 +179,7 @@
 				<span class="glyphicon glyphicon-usd"></span><br>
 				Expenses
 			</a>
-			
+
 			<a href="wishlist" class="btn btn-default">
 				<span class="glyphicon glyphicon-star"></span><br>
 				Wishlist
@@ -101,5 +187,6 @@
 		</div>
 	</div>
 
+	<!-- <script type="text/javascript" src="js/overview.js"></script> -->
 </body>
 </html>
