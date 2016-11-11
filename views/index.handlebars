@@ -3,6 +3,17 @@
 	<link rel="stylesheet" href="css/boostrap.min.css">
 	<link rel="stylesheet" href="css/override.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $("#editBalance").click(function(){
+	        $("#editBalanceForm").show();
+	    });
+
+	    
+	});
+	</script>
+
 	<title>Budge-It!</title>
 </head>
 <body>
@@ -27,28 +38,41 @@
 				</div>
 				<ul class="list-group">
 					<li class="list-group-item">
-						<span class="badge active-green-badge">$5000</span>
-						<b>Total</b>
+
+					<b>Account Balance</b>
+								<span class="glyphicon glyphicon-pencil" id="editBalance" style="float:right;"></span>
+								<span class="badge active-green-badge" id="balance">${{bank.balance}}</span>
+
+								<form style="display:none" class="form-inline" id="editBalanceForm" role="form" method="get" action="/updateBalance">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="balance" placeholder="Account Balance" name="balance">
+										
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
+
+
+
 					</li>
 					<li class="list-group-item">
-						<span class="badge badge-expense">- $2000</span>
+						<span class="badge badge-expense">- ${{totals.food}}</span>
 						Food
 					</li>
 					<li class="list-group-item">
-						<span class="badge badge-expense">- $2000</span>
+						<span class="badge badge-expense">- ${{totals.bills}}</span>
 						Bills
 					</li>
 					<li class="list-group-item">
-						<span class="badge badge-expense">- $400</span>
+						<span class="badge badge-expense">- ${{totals.travel}}</span>
 						Travel
 					</li>
 					<li class="list-group-item">
-						<span class="badge badge-expense">- $400</span>
+						<span class="badge badge-expense">- ${{totals.luxury}}</span>
 						Luxury
 					</li>
 					<li class="list-group-item active-green">
-						<span class="badge active-green-badge">$200</span>
-						<b>Under Budget</b>
+						<span class="badge active-green-badge">${{bank.remaining}}</span>
+						<b>Budget remaining</b>
 					</li>
 				</ul>
 			</div>

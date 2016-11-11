@@ -19,5 +19,9 @@
 			"bills": 0.0,
 			"travel": 0.0,
 			"luxury": 0.0
+	},
+	"bank": {
+			"balance": 0.0,
+			"remaining": 0.0
 	}
 }

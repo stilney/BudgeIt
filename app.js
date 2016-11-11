@@ -49,7 +49,7 @@ app.get('/budget', budget.viewBudget);
 
 app.get('/add', add.addExpense);
 app.get('/updateBudget', add.updateBudget);
-app.get('/addWish', add.addWishlist);
+app.get('/updateBalance', add.updateBalance);
 // Example route
 // app.get('/users', user.list);
 

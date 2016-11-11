@@ -33,6 +33,18 @@ exports.addWishlist = function(req, res) {
 	res.render('wishlist', wishlistJSON);
 }
 
+exports.updateBalance = function(req, res){
+	var balance = parseFloat(req.query.balance);
+	
+
+	data.bank.balance = balance;
+
+
+	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.luxury;
+
+	res.render('index', data);
+}
+
 exports.updateBudget = function(req, res){
 	var budget = parseFloat(req.query.budget);
 	var category = req.query.category;
@@ -57,6 +69,7 @@ exports.updateBudget = function(req, res){
 	{
 		data.budgets.luxury = budget;
 	}
+
 
 	console.log("updateBudget called on budget: " + budget + " category: " + category);
 
@@ -116,6 +129,7 @@ exports.addExpense = function(req, res) {
 		data.totals.luxury += price;
 	}
 
+	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.luxury;
 
 	console.log("data.food.length: " + data.food.length);
 	var index;
