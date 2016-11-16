@@ -80,12 +80,27 @@ exports.addExpense = function(req, res) {
 	var price = parseFloat(req.query.price);
 	var name = req.query.name;
 	var category = req.query.category;
+
+	//get the date
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	if(dd<10) {
+	    dd='0'+dd
+	} 
+	if(mm<10) {
+	    mm='0'+mm
+	} 
+	today = mm+'/'+dd+'/'+yyyy;
+
 	
 	if(category == "food")
 	{
 		data.food.push({
 			"name": name,
-			"price": price
+			"price": price,
+			"date": today
 					
 		});
 

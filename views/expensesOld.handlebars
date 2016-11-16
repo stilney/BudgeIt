@@ -5,17 +5,6 @@
 	<link rel="stylesheet" href="css/boostrap.min.css">
 	<link rel="stylesheet" href="css/override.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion({
-      collapsible: true
-    });
-  } );
-  </script>
 	<script>
 	$(document).ready(function(){
 	    $("#editFood").click(function(){
@@ -55,15 +44,11 @@
 	<!-- So page doesnt begin behind the navbar -->
 	<div class="generalpadding"></div>
 
-	
-
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-
-
 						<h3 class="center-text">Expenses</h3><br>
 
 						<form class="form-inline" id="addExpenseForm" role="form" method="get" action="/add">
@@ -83,109 +68,6 @@
 						  </select>
 						  <button type="submit" class="btn btn-success btn-lg btn-block">Add Expense</button>
 						</form>
-
-						<div id="accordion">
-						  <h3>Food ${{totals.food}}/${{budgets.food}}</h3>
-						  <div>
-							<ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each food}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-
-						 
-						  </div>
-						  <h3>Bills</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each bills}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
-						  <h3>Utilities</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each utilities}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
-						  <h3>Travel</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each travel}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
-
-						  <h3>Luxury</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each luxury}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
-						</div>
-
-						
 						
 						<ul class="list-group">
 							<li class="list-group-item active-title">
