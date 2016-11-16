@@ -35,17 +35,14 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/overview', overview.auth);
-/*
-app.get('/overview', function (req, res, next) {
-	// if (req.path == '/') return next();
-
-	if (!req.session.auth)
-		res.redirect('/');
-
-	next();
-})
-*/
+app.get('/overview', overview.calculateTotals);
+app.get('/expenses', expenses.viewExpenses);
+app.get('/wishlist', wishlist.viewWishlist);
+// app.get('/add', add.auth);
+// app.get('/updateBudget', add.auth);
+// app.get('/updateBalance', add.auth);
+// app.get('/calculateTotals', overview.auth);
+// app.get('/addWish', add.auth);
 
 // development only
 if ('development' == app.get('env')) {
@@ -56,11 +53,6 @@ if ('development' == app.get('env')) {
 app.get('/', login.viewLogin);
 app.post('/login', login.authenticateAccount);
 app.get('/overview', index.view);
-
-app.get('/expenses', expenses.viewExpenses);
-app.get('/wishlist', wishlist.viewWishlist);
-app.get('/budget', budget.viewBudget);
-
 app.get('/add', add.addExpense);
 app.get('/updateBudget', add.updateBudget);
 app.get('/updateBalance', add.updateBalance);
