@@ -36,6 +36,7 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/overview', overview.auth);
+
 /*
 app.get('/overview', function (req, res, next) {
 	// if (req.path == '/') return next();
@@ -56,7 +57,6 @@ if ('development' == app.get('env')) {
 app.get('/', login.viewLogin);
 app.post('/login', login.authenticateAccount);
 app.get('/overview', index.view);
-
 app.get('/expenses', expenses.viewExpenses);
 app.get('/wishlist', wishlist.viewWishlist);
 app.get('/budget', budget.viewBudget);
