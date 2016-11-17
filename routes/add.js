@@ -20,7 +20,17 @@ exports.addFriend = function(req, res) {
 var data = require("../data.json");
 var wishlistJSON = require("../wishlist.json");
 
+exports.auth = function(req, res) {
+
+  if (!req.session.auth) {
+	res.redirect('/');
+	return;
+  }
+}
+
 exports.addWishlist = function(req, res) {
+
+	exports.auth(req,res);
 
 	var price = req.query.price;
 	var name = req.query.name;
@@ -34,8 +44,13 @@ exports.addWishlist = function(req, res) {
 }
 
 exports.updateBalance = function(req, res){
+	exports.auth(req,res);
 	var balance = parseFloat(req.query.balance);
-	
+	if (!balance) {
+		balance = 0;
+	}
+	console.log("@@@@@");
+	console.log(balance);
 
 	data.bank.balance = balance;
 
@@ -46,6 +61,7 @@ exports.updateBalance = function(req, res){
 }
 
 exports.updateBudget = function(req, res){
+	exports.auth(req,res);
 	var budget = parseFloat(req.query.budget);
 	var category = req.query.category;
 
@@ -90,6 +106,7 @@ exports.updateBudget = function(req, res){
 }
 
 exports.addExpense = function(req, res) {
+	exports.auth(req,res);
 	var price = parseFloat(req.query.price);
 	var name = req.query.name;
 	var category = req.query.category;

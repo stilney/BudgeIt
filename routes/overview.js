@@ -5,11 +5,13 @@ exports.auth = function(req, res) {
   if (!req.session.auth)
 		res.redirect('/');
 
-  exports.calculateTotals(req, res);
+  //exports.calculateTotals(req, res);
 
 }
 
 exports.calculateTotals = function(req, res){
+
+  exports.auth(req,res);
 
   if(data != null) {
 
