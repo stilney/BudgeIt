@@ -39,6 +39,24 @@
 	        $("#editEducationForm").show();
 	    });
 	});
+
+	 $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
 	</script>
 
 	<title>Budge-It!</title>
@@ -64,26 +82,29 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 
+						<div id="dialog" title="Add Purchase Transaction">
+						  <form class="form-inline" id="addExpenseForm" role="form" method="get" action="/add">
+							  <div class="form-group">
+							  	<input type="text" class="form-control" id="name" placeholder="Name" name="name">
+							  </div>
+							  <div class="form-group">
+							    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price">
+							  </div>
 
+							  <select type="text" id="category" name="category" class="form-control">
+								  <option>food</option>
+								  <option>utilities</option>
+								  <option>travel</option>
+								  <option>education</option>
+								  <option>bills</option>
+							  </select>
+							  <button type="submit" class="btn btn-success btn-lg btn-block">Add</button>
+							</form>
+						</div>
+ 
 						<h3 class="center-text">Expenses</h3><br>
 
-						<form class="form-inline" id="addExpenseForm" role="form" method="get" action="/add">
-						  <div class="form-group">
-						  	<input type="text" class="form-control" id="name" placeholder="Name" name="name">
-						  </div>
-						  <div class="form-group">
-						    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price">
-						  </div>
-
-						  <select type="text" id="category" name="category" class="form-control">
-							  <option>food</option>
-							  <option>utilities</option>
-							  <option>travel</option>
-							  <option>education</option>
-							  <option>bills</option>
-						  </select>
-						  <button type="submit" class="btn btn-success btn-lg btn-block">Add Expense</button>
-						</form>
+						<button class="btn btn-success btn-lg btn-block" id="opener">Add Purchase</button>
 
 						<div id="accordion">
 						  <div>
@@ -254,9 +275,7 @@
 							</li>
 						  </div>
 
-						
-						
-					
+		
 					</div>
 				</div>
 			</div>
