@@ -91,10 +91,7 @@
 						  	<div class="glyphicon glyphicon-pencil" id="editFood" style="float:right;"></div>
 							<div class="badge badge-expense" id="food" style="float:right; width:25%;">Budgeted ${{budgets.food}}</div>
 							<div class="badge badge-expense" id="food" style="float:right; width:25%;">Spent ${{totals.food}}</div>
-							
-								
-
-							</div>
+						  </div>
 						  <div>
 							<ol reversed class="list-group" id="foodList">
 								<li class="list-group-item">
@@ -121,12 +118,15 @@
 									</div>
 								</form>
 							</li>
-
-						 
 						  </div>
-						  <h3>Bills</h3>
+						 <div>
+						  	<div class="badge badge-expense" id="bills">Bills</div>
+						  	<div class="glyphicon glyphicon-pencil" id="editBills" style="float:right;"></div>
+							<div class="badge badge-expense" id="bills" style="float:right; width:25%;">Budgeted ${{budgets.bills}}</div>
+							<div class="badge badge-expense" id="bills" style="float:right; width:25%;">Spent ${{totals.bills}}</div>
+						  </div>
 						  <div>
-						    <ol reversed class="list-group">
+							<ol reversed class="list-group" id="billsList">
 								<li class="list-group-item">
 									&nbsp; <div style="float:left; width:25%">Date</div>
 										   <div style="float:left; width:25%">Description</div> 
@@ -142,95 +142,8 @@
 							</li>
 							{{/each}}
 							</ol>
-						  </div>
-						  <h3>Utilities</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each utilities}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
-						  <h3>Travel</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each travel}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
 
-						  <h3>Education</h3>
-						  <div>
-						    <ol reversed class="list-group">
-								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
-								</li>
-							{{#each education}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
-						  </div>
-						</div>
-
-						
-						
-						<ul class="list-group">
-							<li class="list-group-item active-title">
-								<b>Food</b>
-								<span class="glyphicon glyphicon-pencil" id="editFood" style="float:right;"></span>
-								<span class="badge badge-expense" id="food">${{totals.food}}/${{budgets.food}}</span>
-
-								<form style="display:none" class="form-inline" id="editFoodForm" role="form" method="get" action="/updateBudget">
-									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Food Budget" name="budget">
-										<input style="display:none" type="text" id="category" name="category" class="form-control" value="food">
-										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
-									</div>
-								</form>
-							</li>
-							{{#each food}}
-							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
-							</li>
-							{{/each}}
-							
-							<li class="list-group-item active-title">
-								<b>Bills</b>
-								<span class="glyphicon glyphicon-pencil" id="editBills" style="float:right;"></span>
-								<span class="badge badge-expense" id="bills">${{totals.bills}}/${{budgets.bills}}</span>
-
-								<form style="display:none" class="form-inline" id="editBillsForm" role="form" method="get" action="/updateBudget">
+							<form style="display:none" class="form-inline" id="editBillsForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
 										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Bills Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="bills">
@@ -238,18 +151,32 @@
 									</div>
 								</form>
 							</li>
-							{{#each bills}}
+						  </div>
+						  <div>
+						  	<div class="badge badge-expense" id="utilities">Utilities</div>
+						  	<div class="glyphicon glyphicon-pencil" id="editUtilities" style="float:right;"></div>
+							<div class="badge badge-expense" id="utilities" style="float:right; width:25%;">Budgeted ${{budgets.utilities}}</div>
+							<div class="badge badge-expense" id="utilities" style="float:right; width:25%;">Spent ${{totals.utilities}}</div>
+						  </div>
+						  <div>
+							<ol reversed class="list-group" id="utilitiesList">
+								<li class="list-group-item">
+									&nbsp; <div style="float:left; width:25%">Date</div>
+										   <div style="float:left; width:25%">Description</div> 
+										   <div style="float:left; width:25%">Cost</div>
+										   <div style="float:right; width:20%">Remaining</div> 
+								</li>
+							{{#each utilities}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; <div style="float:left; width:25%">{{date}}</div>
+									   <div style="float:left; width:25%">{{name}}</div> 
+									   <div style="float:left; width:25%">${{price}}</div>
+									   <div style="float:right; width:20%">Remaining</div> 
 							</li>
 							{{/each}}
+							</ol>
 
-							<li class="list-group-item active-title">
-								<b>Utilities</b>
-								<span class="glyphicon glyphicon-pencil" id="editUtilities" style="float:right;"></span>
-								<span class="badge badge-expense" id="utilities">${{totals.utilities}}/${{budgets.utilities}}</span>
-
-								<form style="display:none" class="form-inline" id="editUtilitiesForm" role="form" method="get" action="/updateBudget">
+							<form style="display:none" class="form-inline" id="editUtilitiesForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
 										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Utilities Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="utilities">
@@ -257,18 +184,33 @@
 									</div>
 								</form>
 							</li>
-							{{#each utilities}}
+						  </div>
+
+						 <div>
+						  	<div class="badge badge-expense" id="travel">Travel</div>
+						  	<div class="glyphicon glyphicon-pencil" id="editTravel" style="float:right;"></div>
+							<div class="badge badge-expense" id="travel" style="float:right; width:25%;">Budgeted ${{budgets.travel}}</div>
+							<div class="badge badge-expense" id="travel" style="float:right; width:25%;">Spent ${{totals.travel}}</div>
+						  </div>
+						  <div>
+							<ol reversed class="list-group" id="travelList">
+								<li class="list-group-item">
+									&nbsp; <div style="float:left; width:25%">Date</div>
+										   <div style="float:left; width:25%">Description</div> 
+										   <div style="float:left; width:25%">Cost</div>
+										   <div style="float:right; width:20%">Remaining</div> 
+								</li>
+							{{#each travel}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; <div style="float:left; width:25%">{{date}}</div>
+									   <div style="float:left; width:25%">{{name}}</div> 
+									   <div style="float:left; width:25%">${{price}}</div>
+									   <div style="float:right; width:20%">Remaining</div> 
 							</li>
 							{{/each}}
+							</ol>
 
-							<li class="list-group-item active-title">
-								<b>Travel</b>
-								<span class="glyphicon glyphicon-pencil" id="editTravel" style="float:right;"></span>
-								<span class="badge badge-expense" id="travel">${{totals.travel}}/${{budgets.travel}}</span>
-
-								<form style="display:none" class="form-inline" id="editTravelForm" role="form" method="get" action="/updateBudget">
+							<form style="display:none" class="form-inline" id="editTravelForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
 										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Travel Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="travel">
@@ -276,18 +218,33 @@
 									</div>
 								</form>
 							</li>
-							{{#each travel}}
+						  </div>
+
+						  <div>
+						  	<div class="badge badge-expense" id="education">Education</div>
+						  	<div class="glyphicon glyphicon-pencil" id="editEducation" style="float:right;"></div>
+							<div class="badge badge-expense" id="education" style="float:right; width:25%;">Budgeted ${{budgets.education}}</div>
+							<div class="badge badge-expense" id="education" style="float:right; width:25%;">Spent ${{totals.education}}</div>
+						  </div>
+						  <div>
+							<ol reversed class="list-group" id="educationList">
+								<li class="list-group-item">
+									&nbsp; <div style="float:left; width:25%">Date</div>
+										   <div style="float:left; width:25%">Description</div> 
+										   <div style="float:left; width:25%">Cost</div>
+										   <div style="float:right; width:20%">Remaining</div> 
+								</li>
+							{{#each education}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; <div style="float:left; width:25%">{{date}}</div>
+									   <div style="float:left; width:25%">{{name}}</div> 
+									   <div style="float:left; width:25%">${{price}}</div>
+									   <div style="float:right; width:20%">Remaining</div> 
 							</li>
 							{{/each}}
-							
-							<li class="list-group-item active-title">
-								<b>Education</b>
-								<span class="glyphicon glyphicon-pencil" id="editEducation" style="float:right;"></span>
-								<span class="badge badge-expense" id="education">${{totals.education}}/${{budgets.education}}</span>
+							</ol>
 
-								<form style="display:none" class="form-inline" id="editEducationForm" role="form" method="get" action="/updateBudget">
+							<form style="display:none" class="form-inline" id="editEducationForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
 										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Education Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="education">
@@ -295,13 +252,11 @@
 									</div>
 								</form>
 							</li>
-							{{#each education}}
-							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
-							</li>
-							{{/each}}
+						  </div>
 
-						</ul>
+						
+						
+					
 					</div>
 				</div>
 			</div>
