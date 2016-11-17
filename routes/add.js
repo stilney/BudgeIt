@@ -55,7 +55,7 @@ exports.updateBalance = function(req, res){
 	data.bank.balance = balance;
 
 
-	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education;
+	data.bank.deficitSurplus = data.bank.balance - data.bank.unpaidExpenses;
 
 	res.render('index', data);
 }
@@ -68,39 +68,37 @@ exports.updateBudget = function(req, res){
 	if(category == "food")
 	{
 		data.budgets.food = budget;
-
-		data.difference.food = data.budgets.food - data.totals.food;
+	
 	}
 	else if(category == "bills")
 	{
 		data.budgets.bills = budget;
-
-		data.difference.bills = data.budgets.bills - data.totals.bills;
+	
 	}
 	else if(category == "utilities")
 	{
 		data.budgets.utilities = budget;
 
-		data.difference.utilities = data.budgets.utilities - data.totals.utilities;
 	}
 	else if(category == "travel")
 	{
 		data.budgets.travel = budget;
 
-		data.difference.travel = data.budgets.travel - data.totals.travel;
 	}
 	else if(category == "education")
 	{
 		data.budgets.education = budget;
 
-		data.difference.education = data.budgets.education - data.totals.education;
 	}
 
-	data.bank.allocatedForBudget = data.difference.food + data.difference.bills + data.difference.utilities + data.difference.travel + data.difference.education;
-	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education - data.bank.allocatedForBudget;
+	data.bank.totalExpenses = data.budgets.food + data.budgets.bills + data.budgets.utilities + data.budgets.travel + data.budgets.education;
+
+	data.bank.unpaidExpenses = data.bank.totalExpenses - data.bank.totalPaidSoFar; 
+	//data.bank.unpaidExpenses = data.difference.food + data.difference.bills + data.difference.utilities + data.difference.travel + data.difference.education;
+	data.bank.deficitSurplus = data.bank.balance  - data.bank.unpaidExpenses;
 	console.log("updateBudget called on budget: " + budget + " category: " + category);
 
-	console.log("allocatedForBudget: " + data.bank.allocatedForBudget);
+	console.log("unpaid expenses: " + data.bank.unpaidExpenses);
 
 	res.render('expenses', data);
 }
@@ -137,6 +135,8 @@ exports.addExpense = function(req, res) {
 		data.totals.food += price;
 
 		data.difference.food = data.budgets.food - data.totals.food;
+
+		data.bank.balance -= price;
 		
 	}
 	else if (category == "utilities")
@@ -147,6 +147,10 @@ exports.addExpense = function(req, res) {
 		});
 
 		data.totals.utilities += price;
+
+		data.difference.utilities = data.budgets.utilities - data.totals.utilities;
+
+		data.bank.balance -= price;
 	}
 	else if (category == "bills")
 	{
@@ -156,6 +160,10 @@ exports.addExpense = function(req, res) {
 		});
 
 		data.totals.bills += price;
+
+		data.difference.bills = data.budgets.bills - data.totals.bills;
+
+		data.bank.balance -= price;
 	}
 	else if (category == "travel")
 	{
@@ -165,6 +173,10 @@ exports.addExpense = function(req, res) {
 		});
 
 		data.totals.travel += price;
+
+		data.difference.travel = data.budgets.travel - data.totals.travel;
+
+		data.bank.balance -= price;
 	}
 	else if (category == "education")
 	{
@@ -174,10 +186,15 @@ exports.addExpense = function(req, res) {
 		});
 
 		data.totals.education += price;
+
+		data.difference.education = data.budgets.education - data.totals.education;
+
+		data.bank.balance -= price;
 	}
-	data.bank.allocatedForBudget = data.difference.food + data.difference.bills + data.difference.utilities + data.difference.travel + data.difference.education;
-	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education - data.bank.allocatedForBudget;
-	console.log("allocatedForBudget: " + data.bank.allocatedForBudget);
+	data.bank.totalPaidSoFar = Math.min(data.totals.food, data.budgets.food) + Math.min(data.totals.bills, data.budgets.bills) + Math.min(data.totals.utilities, data.budgets.utilities) + Math.min(data.totals.travel, data.budgets.travel) + Math.min(data.totals.education, data.budgets.education);
+    console.log("data.bank.totalPaidSoFar: " + data.bank.totalPaidSoFar);
+	data.bank.unpaidExpenses = data.bank.totalExpenses - data.bank.totalPaidSoFar; 
+	console.log("unpaid Expenses: " + data.bank.unpaidExpenses);
 
 
 	

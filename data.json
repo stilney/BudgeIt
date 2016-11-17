@@ -22,8 +22,10 @@
 	},
 	"bank": {
 			"balance": 0.0,
-			"remaining": 0.0,
-			"allocatedForBudget": 0.0,
+			"totalExpenses": 0.0,
+			"totalBudgetLeft": 0.0,
+			"totalPaidSoFar": 0.0,
+			"unpaidExpenses": 0.0,
 			"deficitSurplus": 0.0
 	},
 	"percentage": {

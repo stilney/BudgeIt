@@ -22,11 +22,11 @@ exports.calculateTotals = function(req, res){
       data.bank.balance = parseFloat(req.query.balance);
     }
     
-    balance = data.bank.balance;
+    balance = data.bank.totalExpenses;
    
 
-
-    data.bank.deficitSurplus = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education - data.bank.allocatedForBudget;
+    console.log("unpaidExpenses: " + data.bank.unpaidExpenses);
+    data.bank.deficitSurplus = data.bank.balance - data.bank.unpaidExpenses;
 
 
     var totalExpenses = 0.0;
