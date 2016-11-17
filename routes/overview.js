@@ -24,7 +24,7 @@ exports.calculateTotals = function(req, res){
    
 
 
-    data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.luxury;
+    data.bank.deficitSurplus = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education - data.bank.allocatedForBudget;
 
 
     var totalExpenses = 0.0;
@@ -57,7 +57,7 @@ exports.calculateTotals = function(req, res){
       category4Expenses += parseInt(category4[i].price);
     }
 
-    var category5 = data.luxury;
+    var category5 = data.education;
     var category5Expenses = 0;
     for(i = 0; i < category5.length; i++) {
       totalExpenses += parseInt(category5[i].price);
@@ -68,12 +68,12 @@ exports.calculateTotals = function(req, res){
     console.log("Utilities Total: " + category2Expenses);
     console.log("Bills Total: " + category3Expenses);
     console.log("Travel Total: " + category4Expenses);
-    console.log("Luxury Total: " + category5Expenses);
+    console.log("Education Total: " + category5Expenses);
     console.log("Complete Total: " + totalExpenses);
 
     var expenses = {
       total : [0.0],
-      totalLeft : [0.0],
+      //totalLeft : [0.0],
       category1 : [{}],
       category2 : [{}],
       category3 : [{}],
@@ -81,7 +81,7 @@ exports.calculateTotals = function(req, res){
       category5 : [{}]
     };
 
-    var totalLeft = balance - totalExpenses;
+    //var totalLeft = balance - totalExpenses;
     console.log("balance: " + balance + " totalExpenses: " + totalExpenses);
     var category1Percentage = (category1Expenses / balance) * 100;
     var category2Percentage = (category2Expenses / balance) * 100;
@@ -90,7 +90,7 @@ exports.calculateTotals = function(req, res){
     var category5Percentage = (category5Expenses / balance) * 100;
 
     data.total[0] = (totalExpenses);
-    data.totalLeft[0] = (totalLeft)
+    //data.totalLeft[0] = (totalLeft)
     data.category1[0] = ({ total : category1Expenses, "percentage" : category1Percentage});
     data.category2[0] = ({ total : category2Expenses, "percentage" : category2Percentage});
     data.category3[0] = ({ total : category3Expenses, "percentage" : category3Percentage});

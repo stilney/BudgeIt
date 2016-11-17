@@ -5,31 +5,40 @@
 	"utilities": [],
 	"bills": [],
 	"travel": [],
-	"luxury": [],
+	"education": [],
 	"totals": {
 			"food": 0.0,
 			"utilities": 0.0,
 			"bills": 0.0,
 			"travel": 0.0,
-			"luxury": 0.0
+			"education": 0.0
 	},
 	"budgets": {
 			"food": 0.0,
 			"utilities": 0.0,
 			"bills": 0.0,
 			"travel": 0.0,
-			"luxury": 0.0
+			"education": 0.0
 	},
 	"bank": {
 			"balance": 0.0,
-			"remaining": 0.0
+			"remaining": 0.0,
+			"allocatedForBudget": 0.0,
+			"deficitSurplus": 0.0
 	},
 	"percentage": {
 			"food": 0.0,
 			"utilities": 0.0,
 			"bills": 0.0,
 			"travel": 0.0,
-			"luxury": 0.0
+			"education": 0.0
+	},
+	"difference": {
+			"food": 0.0,
+			"utilities": 0.0,
+			"bills": 0.0,
+			"travel": 0.0,
+			"education": 0.0
 	},
 	
 

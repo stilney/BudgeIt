@@ -40,7 +40,7 @@ exports.updateBalance = function(req, res){
 	data.bank.balance = balance;
 
 
-	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.luxury;
+	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education;
 
 	res.render('index', data);
 }
@@ -52,26 +52,39 @@ exports.updateBudget = function(req, res){
 	if(category == "food")
 	{
 		data.budgets.food = budget;
+
+		data.difference.food = data.budgets.food - data.totals.food;
 	}
 	else if(category == "bills")
 	{
 		data.budgets.bills = budget;
+
+		data.difference.bills = data.budgets.bills - data.totals.bills;
 	}
 	else if(category == "utilities")
 	{
 		data.budgets.utilities = budget;
+
+		data.difference.utilities = data.budgets.utilities - data.totals.utilities;
 	}
 	else if(category == "travel")
 	{
 		data.budgets.travel = budget;
+
+		data.difference.travel = data.budgets.travel - data.totals.travel;
 	}
-	else if(category == "luxury")
+	else if(category == "education")
 	{
-		data.budgets.luxury = budget;
+		data.budgets.education = budget;
+
+		data.difference.education = data.budgets.education - data.totals.education;
 	}
 
-
+	data.bank.allocatedForBudget = data.difference.food + data.difference.bills + data.difference.utilities + data.difference.travel + data.difference.education;
+	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education - data.bank.allocatedForBudget;
 	console.log("updateBudget called on budget: " + budget + " category: " + category);
+
+	console.log("allocatedForBudget: " + data.bank.allocatedForBudget);
 
 	res.render('expenses', data);
 }
@@ -105,6 +118,8 @@ exports.addExpense = function(req, res) {
 		});
 
 		data.totals.food += price;
+
+		data.difference.food = data.budgets.food - data.totals.food;
 		
 	}
 	else if (category == "utilities")
@@ -134,27 +149,19 @@ exports.addExpense = function(req, res) {
 
 		data.totals.travel += price;
 	}
-	else if (category == "luxury")
+	else if (category == "education")
 	{
-		data.luxury.push({
+		data.education.push({
 			"name": name,
 			"price": price
 		});
 
-		data.totals.luxury += price;
+		data.totals.education += price;
 	}
+	data.bank.allocatedForBudget = data.difference.food + data.difference.bills + data.difference.utilities + data.difference.travel + data.difference.education;
+	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.education - data.bank.allocatedForBudget;
+	console.log("allocatedForBudget: " + data.bank.allocatedForBudget);
 
-	data.bank.remaining = data.bank.balance - data.totals.food - data.totals.utilities - data.totals.bills - data.totals.travel - data.totals.luxury;
-
-	console.log("data.food.length: " + data.food.length);
-	var index;
-	var foodTotal = 0;
-	for (index = 0; index < data.food.length; ++index) {
-    console.log(data.food[index].name + " " + data.food[index].price );
-    foodTotal = foodTotal + data.food[index].price;
-
-	  res.render('expenses', data);
-}
 
 	
        //when the document is finished loading, replace everything

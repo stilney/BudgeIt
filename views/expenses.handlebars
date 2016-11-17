@@ -12,7 +12,7 @@
   <script>
   $( function() {
     $( "#accordion" ).accordion({
-      collapsible: true
+      collapsible: true, active: 'none'
     });
   } );
   </script>
@@ -20,6 +20,7 @@
 	$(document).ready(function(){
 	    $("#editFood").click(function(){
 	        $("#editFoodForm").show();
+	        $("#foodList").hide();
 	    });
 
 	    $("#editBills").click(function(){
@@ -34,8 +35,8 @@
 	        $("#editTravelForm").show();
 	    });
 
-	    $("#editLuxury").click(function(){
-	        $("#editLuxuryForm").show();
+	    $("#editEducation").click(function(){
+	        $("#editEducationForm").show();
 	    });
 	});
 	</script>
@@ -78,16 +79,24 @@
 							  <option>food</option>
 							  <option>utilities</option>
 							  <option>travel</option>
-							  <option>luxury</option>
+							  <option>education</option>
 							  <option>bills</option>
 						  </select>
 						  <button type="submit" class="btn btn-success btn-lg btn-block">Add Expense</button>
 						</form>
 
 						<div id="accordion">
-						  <h3>Food ${{totals.food}}/${{budgets.food}}</h3>
 						  <div>
-							<ol reversed class="list-group">
+						  	<div class="badge badge-expense" id="food">Food</div>
+						  	<div class="glyphicon glyphicon-pencil" id="editFood" style="float:right;"></div>
+							<div class="badge badge-expense" id="food" style="float:right; width:25%;">Budgeted ${{budgets.food}}</div>
+							<div class="badge badge-expense" id="food" style="float:right; width:25%;">Spent ${{totals.food}}</div>
+							
+								
+
+							</div>
+						  <div>
+							<ol reversed class="list-group" id="foodList">
 								<li class="list-group-item">
 									&nbsp; <div style="float:left; width:25%">Date</div>
 										   <div style="float:left; width:25%">Description</div> 
@@ -103,6 +112,15 @@
 							</li>
 							{{/each}}
 							</ol>
+
+							<form style="display:none" class="form-inline" id="editFoodForm" role="form" method="get" action="/updateBudget">
+									<div class="form-group">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Food Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="food">
+										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+									</div>
+								</form>
+							</li>
 
 						 
 						  </div>
@@ -164,7 +182,7 @@
 							</ol>
 						  </div>
 
-						  <h3>Luxury</h3>
+						  <h3>Education</h3>
 						  <div>
 						    <ol reversed class="list-group">
 								<li class="list-group-item">
@@ -173,7 +191,7 @@
 										   <div style="float:left; width:25%">Cost</div>
 										   <div style="float:right; width:20%">Remaining</div> 
 								</li>
-							{{#each luxury}}
+							{{#each education}}
 							<li class="list-group-item">
 								&nbsp; <div style="float:left; width:25%">{{date}}</div>
 									   <div style="float:left; width:25%">{{name}}</div> 
@@ -265,19 +283,19 @@
 							{{/each}}
 							
 							<li class="list-group-item active-title">
-								<b>Luxury</b>
-								<span class="glyphicon glyphicon-pencil" id="editLuxury" style="float:right;"></span>
-								<span class="badge badge-expense" id="luxury">${{totals.luxury}}/${{budgets.luxury}}</span>
+								<b>Education</b>
+								<span class="glyphicon glyphicon-pencil" id="editEducation" style="float:right;"></span>
+								<span class="badge badge-expense" id="education">${{totals.education}}/${{budgets.education}}</span>
 
-								<form style="display:none" class="form-inline" id="editLuxuryForm" role="form" method="get" action="/updateBudget">
+								<form style="display:none" class="form-inline" id="editEducationForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Luxury Budget" name="budget">
-										<input style="display:none" type="text" id="category" name="category" class="form-control" value="luxury">
+										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Education Budget" name="budget">
+										<input style="display:none" type="text" id="category" name="category" class="form-control" value="education">
 										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
 									</div>
 								</form>
 							</li>
-							{{#each luxury}}
+							{{#each education}}
 							<li class="list-group-item">
 								&nbsp; {{name}} ${{price}} 
 							</li>
