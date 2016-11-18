@@ -68,3 +68,34 @@
 .total-budget-left {
 	font-size: 30px;
 }
+
+.no-padding td {
+	padding: 0px 0px 0px 0px;
+}
+
+.wishlist-rec-yes {
+	background-color: #3FB634;
+}
+
+.wishlist-rec-no {
+	background-color: #ff0039;
+}
+
+.wishlist-rec-wait {
+  background-color: #ff7518;
+}
+
+.wishlist-rec {
+	display: block;
+	height: 60px;
+	width: 60px;
+	text-align: center;
+	font-size: 20px;
+	padding-top: 10px;
+	color: white;
+}
+
+.wishlist-rec-button {
+	display: block;
+	margin-top: 10px;
+}

@@ -18,7 +18,7 @@
   </script>
 	<script>
 	$(document).ready(function(){
-	    
+
 
 	    $("#editBills").click(function(){
 	        $("#editBillsForm").show();
@@ -43,7 +43,7 @@
       show: {effect: "scale", duration: 1000},
       hide: {effect: "explode", duration: 1000}
     });
- 
+
     $( "#addPurchase" ).on( "click", function() {
       $( "#addPurchaseDialog" ).dialog( "open" );
     });
@@ -55,7 +55,7 @@
       show: {effect: "scale", duration: 1000},
       hide: {effect: "explode", duration: 1000}
     });
- 
+
     $( "#editFood" ).on( "click", function() {
       $( "#editFoodDialog" ).dialog( "open" );
     });
@@ -67,7 +67,7 @@
       show: {effect: "scale", duration: 1000},
       hide: {effect: "explode", duration: 1000}
     });
- 
+
     $( "#editBills" ).on( "click", function() {
       $( "#editBillsDialog" ).dialog( "open" );
     });
@@ -79,7 +79,7 @@
       show: {effect: "scale", duration: 1000},
       hide: {effect: "explode", duration: 1000}
     });
- 
+
     $( "#editUtilities" ).on( "click", function() {
       $( "#editUtilitiesDialog" ).dialog( "open" );
     });
@@ -91,7 +91,7 @@
       show: {effect: "scale", duration: 1000},
       hide: {effect: "explode", duration: 1000}
     });
- 
+
     $( "#editEducation" ).on( "click", function() {
       $( "#editEducationDialog" ).dialog( "open" );
     });
@@ -103,13 +103,13 @@
       show: {effect: "scale", duration: 1000},
       hide: {effect: "explode", duration: 1000}
     });
- 
+
     $( "#editTravel" ).on( "click", function() {
       $( "#editTravelDialog" ).dialog( "open" );
     });
   } );
 
-   
+
 
 	</script>
 
@@ -128,7 +128,7 @@
 	<!-- So page doesnt begin behind the navbar -->
 	<div class="generalpadding"></div>
 
-	
+
 
 	<div class="container">
 		<div class="row">
@@ -155,7 +155,7 @@
 							  <button type="submit" class="btn btn-success btn-lg btn-block">Add</button>
 							</form>
 						</div>
- 
+
 						<h3 class="center-text">Expenses</h3><br>
 
 						<button class="btn btn-success btn-lg btn-block" id="addPurchase">Add Purchase</button>
@@ -170,19 +170,19 @@
 						  <div>
 							<ol reversed class="list-group" id="foodList">
 								<li class="list-group-item">
-										   
+
 									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
 										   <div style="float:left;"><strong>Description</strong></div>
 										   <div style="float:right;"><strong>Cost</strong></div>
-										     
+
 								</li>
 							{{#each food}}
 							<li class="list-group-item">
-									   
+
 								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
 									   <div style="float:left;">{{name}}</div>
 									   <div style="float:right;">${{price}}</div>
-									    
+
 							</li>
 							{{/each}}
 							</ol>
@@ -210,14 +210,14 @@
 									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
 										   <div style="float:left;"><strong>Description</strong></div>
 										   <div style="float:right;"><strong>Cost</strong></div>
-										    
+
 								</li>
 							{{#each bills}}
 							<li class="list-group-item">
 								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
 									   <div style="float:left;">{{name}}</div>
 									   <div style="float:right;">${{price}}</div>
-									    
+
 							</li>
 							{{/each}}
 							</ol>
@@ -244,14 +244,14 @@
 									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
 										   <div style="float:left;"><strong>Description</strong></div>
 										   <div style="float:right;"><strong>Cost</strong></div>
-										    
+
 								</li>
 							{{#each utilities}}
 							<li class="list-group-item">
 								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
 									   <div style="float:left;">{{name}}</div>
 									   <div style="float:right;">${{price}}</div>
-									   
+
 							</li>
 							{{/each}}
 							</ol>
@@ -280,14 +280,14 @@
 									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
 										   <div style="float:left;"><strong>Description</strong></div>
 										   <div style="float:right;"><strong>Cost</strong></div>
-										    
+
 								</li>
 							{{#each travel}}
 							<li class="list-group-item">
 								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
 									   <div style="float:left;">{{name}}</div>
 									   <div style="float:right;">${{price}}</div>
-									    
+
 							</li>
 							{{/each}}
 							</ol>
@@ -316,14 +316,14 @@
 									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
 										   <div style="float:left;"><strong>Description</strong></div>
 										   <div style="float:right;"><strong>Cost</strong></div>
-										    
+
 								</li>
 								{{#each education}}
 								<li class="list-group-item">
 									&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
 										   <div style="float:left;">{{name}}</div>
 										   <div style="float:right;">${{price}}</div>
-										    
+
 								</li>
 								{{/each}}
 							  </ol>
@@ -343,6 +343,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 	<!-- So page doesn't cut off before the footer menu -->
 	<div class="generalpadding"></div>
@@ -358,7 +359,7 @@
 				<span class="glyphicon glyphicon-usd"></span><br>
 				Expenses
 			</a>
-			
+
 			<a href="wishlist" class="btn btn-default">
 				<span class="glyphicon glyphicon-star"></span><br>
 				Wishlist

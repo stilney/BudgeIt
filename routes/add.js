@@ -34,13 +34,17 @@ exports.addWishlist = function(req, res) {
 
 	var price = req.query.price;
 	var name = req.query.name;
+  var category = req.query.category;
 
 	wishlistJSON.wishlist.push({
 		"name": name,
-		"price": price
+		"price": price,
+    		"category": category,
+    		"recommend" : "yes"
 	});
 
 	res.render('wishlist', wishlistJSON);
+  res.redirect('wishlist');
 }
 
 exports.updateBalance = function(req, res){
