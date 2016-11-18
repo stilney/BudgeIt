@@ -7,14 +7,25 @@
 	<link rel="stylesheet" href="css/override.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-	$(document).ready(function(){
-	    $("#editBalance").click(function(){
-	        $("#editBalanceForm").show();
-	    });
+	
 
-	    
-	});
+	  $( function() {
+    $( "#editBalanceDialog" ).dialog({
+      autoOpen: false,
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
+    });
+ 
+    $( "#editBalance" ).on( "click", function() {
+      $( "#editBalanceDialog" ).dialog( "open" );
+
+    });
+  } );
 	</script>
 
 	<title>Budge-It!</title>
@@ -108,13 +119,15 @@
 								</tr>
 							</tbody>
 						</table>
-						<form style="display:none" class="form-inline" id="editBalanceForm" role="form" method="get" action="/calculateTotals">
+						<div id="editBalanceDialog" title="Edit Balance">
+						<form class="form-inline" id="editBalanceForm" role="form" method="get" action="/calculateTotals">
 									<div class="form-group">
 										<input style="width:140px" type="number" step=".01" class="form-control" id="balance" placeholder="Account Balance" name="balance">
 										
 										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
 									</div>
 								</form>
+						</div>
 					</div>
 				</div>
 
