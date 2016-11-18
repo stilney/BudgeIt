@@ -143,7 +143,8 @@ exports.addExpense = function(req, res) {
 	{
 		data.utilities.push({
 			"name": name,
-			"price": price
+			"price": price,
+			"date": today
 		});
 
 		data.totals.utilities += price;
@@ -156,7 +157,8 @@ exports.addExpense = function(req, res) {
 	{
 		data.bills.push({
 			"name": name,
-			"price": price
+			"price": price,
+			"date": today
 		});
 
 		data.totals.bills += price;
@@ -169,7 +171,8 @@ exports.addExpense = function(req, res) {
 	{
 		data.travel.push({
 			"name": name,
-			"price": price
+			"price": price,
+			"date": today
 		});
 
 		data.totals.travel += price;
@@ -182,7 +185,8 @@ exports.addExpense = function(req, res) {
 	{
 		data.education.push({
 			"name": name,
-			"price": price
+			"price": price,
+			"date": today
 		});
 
 		data.totals.education += price;

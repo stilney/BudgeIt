@@ -18,10 +18,7 @@
   </script>
 	<script>
 	$(document).ready(function(){
-	    $("#editFood").click(function(){
-	        $("#editFoodForm").show();
-	        $("#foodList").hide();
-	    });
+	    
 
 	    $("#editBills").click(function(){
 	        $("#editBillsForm").show();
@@ -41,22 +38,79 @@
 	});
 
 	 $( function() {
-    $( "#dialog" ).dialog({
+    $( "#addPurchaseDialog" ).dialog({
       autoOpen: false,
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      }
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
     });
  
-    $( "#opener" ).on( "click", function() {
-      $( "#dialog" ).dialog( "open" );
+    $( "#addPurchase" ).on( "click", function() {
+      $( "#addPurchaseDialog" ).dialog( "open" );
     });
   } );
+
+	 $( function() {
+    $( "#editFoodDialog" ).dialog({
+      autoOpen: false,
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
+    });
+ 
+    $( "#editFood" ).on( "click", function() {
+      $( "#editFoodDialog" ).dialog( "open" );
+    });
+  } );
+
+	  $( function() {
+    $( "#editBillsDialog" ).dialog({
+      autoOpen: false,
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
+    });
+ 
+    $( "#editBills" ).on( "click", function() {
+      $( "#editBillsDialog" ).dialog( "open" );
+    });
+  } );
+
+	    $( function() {
+    $( "#editUtilitiesDialog" ).dialog({
+      autoOpen: false,
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
+    });
+ 
+    $( "#editUtilities" ).on( "click", function() {
+      $( "#editUtilitiesDialog" ).dialog( "open" );
+    });
+  } );
+
+	       $( function() {
+    $( "#editEducationDialog" ).dialog({
+      autoOpen: false,
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
+    });
+ 
+    $( "#editEducation" ).on( "click", function() {
+      $( "#editEducationDialog" ).dialog( "open" );
+    });
+  } );
+
+	      $( function() {
+    $( "#editTravelDialog" ).dialog({
+      autoOpen: false,
+      show: {effect: "scale", duration: 1000},
+      hide: {effect: "explode", duration: 1000}
+    });
+ 
+    $( "#editTravel" ).on( "click", function() {
+      $( "#editTravelDialog" ).dialog( "open" );
+    });
+  } );
+
+   
+
 	</script>
 
 	<title>Budge-It!</title>
@@ -82,7 +136,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 
-						<div id="dialog" title="Add Purchase Transaction">
+						<div id="addPurchaseDialog" title="Add Purchase Transaction">
 						  <form class="form-inline" id="addExpenseForm" role="form" method="get" action="/add">
 							  <div class="form-group">
 							  	<input type="text" class="form-control" id="name" placeholder="Name" name="name">
@@ -104,178 +158,186 @@
  
 						<h3 class="center-text">Expenses</h3><br>
 
-						<button class="btn btn-success btn-lg btn-block" id="opener">Add Purchase</button>
+						<button class="btn btn-success btn-lg btn-block" id="addPurchase">Add Purchase</button>
 
 						<div id="accordion">
 						  <div>
 						  	<div class="badge badge-expense" id="food">Food</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editFood" style="float:right;"></div>
-							<div class="badge badge-expense" id="food" style="float:right; width:25%;">Budgeted ${{budgets.food}}</div>
-							<div class="badge badge-expense" id="food" style="float:right; width:25%;">Spent ${{totals.food}}</div>
+							<div class="badge badge-expense" id="food" style="float:right;">Budgeted ${{budgets.food}}</div>
+							<div class="badge badge-expense" id="food" style="float:right;">Spent ${{totals.food}}</div>
 						  </div>
 						  <div>
 							<ol reversed class="list-group" id="foodList">
 								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
+										   
+									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
+										   <div style="float:left;"><strong>Description</strong></div>
+										   <div style="float:right;"><strong>Cost</strong></div>
+										     
 								</li>
 							{{#each food}}
 							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
+									   
+								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
+									   <div style="float:left;">{{name}}</div>
+									   <div style="float:right;">${{price}}</div>
+									    
 							</li>
 							{{/each}}
 							</ol>
 
-							<form style="display:none" class="form-inline" id="editFoodForm" role="form" method="get" action="/updateBudget">
+							<div id="editFoodDialog" title="Edit Food Budget">
+							<form class="form-inline" id="editFoodForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Food Budget" name="budget">
+										<input type="number" step=".01" class="form-control" id="budget" placeholder="Food Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="food">
-										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+										<button type="submit" class="btn btn-success btn-block">Save</button>
 									</div>
 								</form>
+								</div>
 							</li>
 						  </div>
 						 <div>
 						  	<div class="badge badge-expense" id="bills">Bills</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editBills" style="float:right;"></div>
-							<div class="badge badge-expense" id="bills" style="float:right; width:25%;">Budgeted ${{budgets.bills}}</div>
-							<div class="badge badge-expense" id="bills" style="float:right; width:25%;">Spent ${{totals.bills}}</div>
+							<div class="badge badge-expense" id="bills" style="float:right;">Budgeted ${{budgets.bills}}</div>
+							<div class="badge badge-expense" id="bills" style="float:right;">Spent ${{totals.bills}}</div>
 						  </div>
 						  <div>
 							<ol reversed class="list-group" id="billsList">
 								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
+									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
+										   <div style="float:left;"><strong>Description</strong></div>
+										   <div style="float:right;"><strong>Cost</strong></div>
+										    
 								</li>
 							{{#each bills}}
 							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
+								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
+									   <div style="float:left;">{{name}}</div>
+									   <div style="float:right;">${{price}}</div>
+									    
 							</li>
 							{{/each}}
 							</ol>
-
-							<form style="display:none" class="form-inline" id="editBillsForm" role="form" method="get" action="/updateBudget">
+							<div id="editBillsDialog" title="Edit Bills Budget">
+							<form class="form-inline" id="editBillsForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Bills Budget" name="budget">
+										<input type="number" step=".01" class="form-control" id="budget" placeholder="Bills Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="bills">
-										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+										<button type="submit" class="btn btn-success btn-block">Save</button>
 									</div>
 								</form>
+								</div>
 							</li>
 						  </div>
 						  <div>
 						  	<div class="badge badge-expense" id="utilities">Utilities</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editUtilities" style="float:right;"></div>
-							<div class="badge badge-expense" id="utilities" style="float:right; width:25%;">Budgeted ${{budgets.utilities}}</div>
-							<div class="badge badge-expense" id="utilities" style="float:right; width:25%;">Spent ${{totals.utilities}}</div>
+							<div class="badge badge-expense" id="utilities" style="float:right;">Budgeted ${{budgets.utilities}}</div>
+							<div class="badge badge-expense" id="utilities" style="float:right;">Spent ${{totals.utilities}}</div>
 						  </div>
 						  <div>
 							<ol reversed class="list-group" id="utilitiesList">
 								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
+									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
+										   <div style="float:left;"><strong>Description</strong></div>
+										   <div style="float:right;"><strong>Cost</strong></div>
+										    
 								</li>
 							{{#each utilities}}
 							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
+								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
+									   <div style="float:left;">{{name}}</div>
+									   <div style="float:right;">${{price}}</div>
+									   
 							</li>
 							{{/each}}
 							</ol>
 
-							<form style="display:none" class="form-inline" id="editUtilitiesForm" role="form" method="get" action="/updateBudget">
+							<div id="editUtilitiesDialog" title="Edit Utilities Budget">
+							<form class="form-inline" id="editUtilitiesForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Utilities Budget" name="budget">
+										<input type="number" step=".01" class="form-control" id="budget" placeholder="Utilities Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="utilities">
-										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+										<button type="submit" class="btn btn-success btn-block">Save</button>
 									</div>
 								</form>
+								</div>
 							</li>
 						  </div>
 
 						 <div>
 						  	<div class="badge badge-expense" id="travel">Travel</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editTravel" style="float:right;"></div>
-							<div class="badge badge-expense" id="travel" style="float:right; width:25%;">Budgeted ${{budgets.travel}}</div>
-							<div class="badge badge-expense" id="travel" style="float:right; width:25%;">Spent ${{totals.travel}}</div>
+							<div class="badge badge-expense" id="travel" style="float:right;">Budgeted ${{budgets.travel}}</div>
+							<div class="badge badge-expense" id="travel" style="float:right;">Spent ${{totals.travel}}</div>
 						  </div>
 						  <div>
 							<ol reversed class="list-group" id="travelList">
 								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
+									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
+										   <div style="float:left;"><strong>Description</strong></div>
+										   <div style="float:right;"><strong>Cost</strong></div>
+										    
 								</li>
 							{{#each travel}}
 							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
+								&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
+									   <div style="float:left;">{{name}}</div>
+									   <div style="float:right;">${{price}}</div>
+									    
 							</li>
 							{{/each}}
 							</ol>
 
-							<form style="display:none" class="form-inline" id="editTravelForm" role="form" method="get" action="/updateBudget">
+							<div id="editTravelDialog" title="Edit Travel Budget">
+							<form class="form-inline" id="editTravelForm" role="form" method="get" action="/updateBudget">
 									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Travel Budget" name="budget">
+										<input type="number" step=".01" class="form-control" id="budget" placeholder="Travel Budget" name="budget">
 										<input style="display:none" type="text" id="category" name="category" class="form-control" value="travel">
-										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
+										<button type="submit" class="btn btn-success btn-block">Save</button>
 									</div>
 								</form>
+								</div>
 							</li>
 						  </div>
 
 						  <div>
 						  	<div class="badge badge-expense" id="education">Education</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editEducation" style="float:right;"></div>
-							<div class="badge badge-expense" id="education" style="float:right; width:25%;">Budgeted ${{budgets.education}}</div>
-							<div class="badge badge-expense" id="education" style="float:right; width:25%;">Spent ${{totals.education}}</div>
+							<div class="badge badge-expense" id="education" style="float:right;">Budgeted ${{budgets.education}}</div>
+							<div class="badge badge-expense" id="education" style="float:right;;">Spent ${{totals.education}}</div>
 						  </div>
 						  <div>
-							<ol reversed class="list-group" id="educationList">
+						  	<ol reversed class="list-group" id="educationList">
 								<li class="list-group-item">
-									&nbsp; <div style="float:left; width:25%">Date</div>
-										   <div style="float:left; width:25%">Description</div> 
-										   <div style="float:left; width:25%">Cost</div>
-										   <div style="float:right; width:20%">Remaining</div> 
+									&nbsp; <div style="float:left; padding-right: 67px;"><strong>Date</strong></div>
+										   <div style="float:left;"><strong>Description</strong></div>
+										   <div style="float:right;"><strong>Cost</strong></div>
+										    
 								</li>
-							{{#each education}}
-							<li class="list-group-item">
-								&nbsp; <div style="float:left; width:25%">{{date}}</div>
-									   <div style="float:left; width:25%">{{name}}</div> 
-									   <div style="float:left; width:25%">${{price}}</div>
-									   <div style="float:right; width:20%">Remaining</div> 
-							</li>
-							{{/each}}
-							</ol>
+								{{#each education}}
+								<li class="list-group-item">
+									&nbsp; <div style="float:left; padding-right: 25px;">{{date}}</div>
+										   <div style="float:left;">{{name}}</div>
+										   <div style="float:right;">${{price}}</div>
+										    
+								</li>
+								{{/each}}
+							  </ol>
+							<div id="editEducationDialog" title="Edit Education Budget">
+								<form class="form-inline" id="editEducationForm" role="form" method="get" action="/updateBudget">
+										<div class="form-group">
+											<input type="number" step=".01" class="form-control" id="budget" placeholder="Education Budget" name="budget">
+											<input style="display:none" type="text" id="category" name="category" class="form-control" value="education">
+											<button type="submit" class="btn btn-success btn-block">Save</button>
+										</div>
+									</form>
+							 </div>
 
-							<form style="display:none" class="form-inline" id="editEducationForm" role="form" method="get" action="/updateBudget">
-									<div class="form-group">
-										<input style="width:140px" type="number" step=".01" class="form-control" id="budget" placeholder="Education Budget" name="budget">
-										<input style="display:none" type="text" id="category" name="category" class="form-control" value="education">
-										<button style="width:140px" type="submit" class="btn btn-success btn-block">Save</button>
-									</div>
-								</form>
-							</li>
 						  </div>
-
-		
 					</div>
 				</div>
 			</div>
