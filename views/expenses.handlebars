@@ -139,10 +139,10 @@
 						<div id="addPurchaseDialog" title="Add Purchase Transaction">
 						  <form class="form-inline" id="addExpenseForm" role="form" method="get" action="/add">
 							  <div class="form-group">
-							  	<input type="text" class="form-control" id="name" placeholder="Name" name="name">
+							  	<input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
 							  </div>
 							  <div class="form-group">
-							    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price">
+							    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price" required>
 							  </div>
 
 							  <select type="text" id="category" name="category" class="form-control">
@@ -367,6 +367,5 @@
 		</div>
 	</div>
 
-<script>src="/public/js/totals.js"</script>
 </body>
 </html>
