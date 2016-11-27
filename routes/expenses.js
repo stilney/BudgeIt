@@ -10,5 +10,15 @@ exports.auth = function(req, res) {
 exports.viewExpenses = function(req, res){
 
 	exports.auth(req,res);
+	data['showAlternate'] = true;
+	console.log(data['showAlternate']);
 	res.render('expenses', data);
+};
+
+exports.viewExpensesOld = function(req, res){
+
+	exports.auth(req,res);
+	data['showAlternate'] = false;
+	console.log(data['showAlternate']);
+	res.render('expensesOld', data);
 };

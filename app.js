@@ -10,7 +10,7 @@ var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
 var expenses = require('./routes/expenses');
-var expensesOld = require('./routes/expensesOld');
+//var expensesOld = require('./routes/expensesOld');
 var wishlist = require('./routes/wishlist');
 var budget = require('./routes/budget');
 var add = require('./routes/add');
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/overview', overview.calculateTotals);
 app.get('/expenses', expenses.viewExpenses);
-app.get('/expensesOld', expensesOld.viewExpensesOld);
+app.get('/expensesOld', expenses.viewExpensesOld);
 app.get('/wishlist', wishlist.viewWishlist);
 // app.get('/add', add.auth);
 // app.get('/updateBudget', add.auth);
