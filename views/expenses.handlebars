@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/override.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+<!--   <link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
@@ -409,9 +409,9 @@
 							  <option>luxury</option>
 							  <option>bills</option>
 						  </select>
-						  <button type="submit" class="btn btn-success btn-lg btn-block">Add Expense</button>
+						  <button type="submit" class="btn btn-success btn-lg btn-block" id="addExpense">Add Expense</button>
 						</form>
-						
+
 						<ul class="list-group">
 							<li class="list-group-item active-title">
 								<b>Food</b>
@@ -428,10 +428,10 @@
 							</li>
 							{{#each food}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; {{name}} ${{price}}
 							</li>
 							{{/each}}
-							
+
 							<li class="list-group-item active-title">
 								<b>Bills</b>
 								<span class="glyphicon glyphicon-pencil" id="editBills" style="float:right;"></span>
@@ -447,7 +447,7 @@
 							</li>
 							{{#each bills}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; {{name}} ${{price}}
 							</li>
 							{{/each}}
 
@@ -466,7 +466,7 @@
 							</li>
 							{{#each utilities}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; {{name}} ${{price}}
 							</li>
 							{{/each}}
 
@@ -485,10 +485,10 @@
 							</li>
 							{{#each travel}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; {{name}} ${{price}}
 							</li>
 							{{/each}}
-							
+
 							<li class="list-group-item active-title">
 								<b>Luxury</b>
 								<span class="glyphicon glyphicon-pencil" id="editLuxury" style="float:right;"></span>
@@ -504,7 +504,7 @@
 							</li>
 							{{#each luxury}}
 							<li class="list-group-item">
-								&nbsp; {{name}} ${{price}} 
+								&nbsp; {{name}} ${{price}}
 							</li>
 							{{/each}}
 
@@ -538,7 +538,7 @@
 		</div>
 	</div>
 
-<script src="/public/js/totals.js"></script>
+<!-- <script src="/public/js/totals.js"></script> -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -548,6 +548,26 @@
   ga('create', 'UA-88055949-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+if(document.getElementById("addPurchase") != null) {
+	document.getElementById("addPurchase").addEventListener("click", myFunction);
+}
+
+function myFunction() {
+	console.log("new is working");
+    ga('send', 'event', 'navRedesign', 'click');
+}
+</script>
+<script>
+if(document.getElementById("addExpense") != null) {
+document.getElementById("addExpense").addEventListener("click", myFunctions);
+}
+
+function myFunctions() {
+	console.log("old is working");
+    ga('send', 'event', 'navOriginal', 'click');
+}
 </script>
 </body>
 </html>

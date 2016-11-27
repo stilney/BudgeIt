@@ -3,7 +3,7 @@ var data = require('../data.json');
 exports.auth = function(req, res) {
 
   if (!req.session.auth) {
-  	res.redirect('/');	
+  	res.redirect('/');
   }
 }
 
@@ -20,5 +20,5 @@ exports.viewExpensesOld = function(req, res){
 	exports.auth(req,res);
 	data['showAlternate'] = false;
 	console.log(data['showAlternate']);
-	res.render('expensesOld', data);
+	res.render('expenses', data);
 };
