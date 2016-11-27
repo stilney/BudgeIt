@@ -571,7 +571,7 @@ if(document.getElementById("addPurchase") != null) {
 
 function myFunction() {
 	console.log("new is working");
-    ga('send', 'event', 'navRedesign', 'click');
+    ga('send', 'event', 'add', 'click');
 }
 </script>
 <script>
@@ -581,7 +581,7 @@ document.getElementById("addExpense").addEventListener("click", myFunctions);
 
 function myFunctions() {
 	console.log("old is working");
-    ga('send', 'event', 'navOriginal', 'click');
+    ga('send', 'event', 'add', 'click');
 }
 </script>
 </body>
