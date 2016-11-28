@@ -40,8 +40,8 @@
 	 $( function() {
     $( "#addPurchaseDialog" ).dialog({
       autoOpen: false,
-      show: {effect: "scale", duration: 1000},
-      hide: {effect: "explode", duration: 1000}
+      show: {effect: "scale", duration: 200},
+      hide: {effect: "explode", duration: 200}
     });
 
     $( "#addPurchase" ).on( "click", function() {
@@ -52,8 +52,8 @@
 	 $( function() {
     $( "#editFoodDialog" ).dialog({
       autoOpen: false,
-      show: {effect: "scale", duration: 1000},
-      hide: {effect: "explode", duration: 1000}
+      show: {effect: "scale", duration: 200},
+      hide: {effect: "explode", duration: 200}
     });
 
     $( "#editFood" ).on( "click", function() {
@@ -64,8 +64,8 @@
 	  $( function() {
     $( "#editBillsDialog" ).dialog({
       autoOpen: false,
-      show: {effect: "scale", duration: 1000},
-      hide: {effect: "explode", duration: 1000}
+      show: {effect: "scale", duration: 200},
+      hide: {effect: "explode", duration: 200}
     });
 
     $( "#editBills" ).on( "click", function() {
@@ -76,8 +76,8 @@
 	    $( function() {
     $( "#editUtilitiesDialog" ).dialog({
       autoOpen: false,
-      show: {effect: "scale", duration: 1000},
-      hide: {effect: "explode", duration: 1000}
+      show: {effect: "scale", duration: 200},
+      hide: {effect: "explode", duration: 200}
     });
 
     $( "#editUtilities" ).on( "click", function() {
@@ -88,8 +88,8 @@
 	       $( function() {
     $( "#editEducationDialog" ).dialog({
       autoOpen: false,
-      show: {effect: "scale", duration: 1000},
-      hide: {effect: "explode", duration: 1000}
+      show: {effect: "scale", duration: 200},
+      hide: {effect: "explode", duration: 200}
     });
 
     $( "#editEducation" ).on( "click", function() {
@@ -100,8 +100,8 @@
 	      $( function() {
     $( "#editTravelDialog" ).dialog({
       autoOpen: false,
-      show: {effect: "scale", duration: 1000},
-      hide: {effect: "explode", duration: 1000}
+      show: {effect: "scale", duration: 200},
+      hide: {effect: "explode", duration: 200}
     });
 
     $( "#editTravel" ).on( "click", function() {
@@ -120,7 +120,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="navbar-header">
 			<img src="img/logo.png" height="30px"/>
-			<span style="color:white; float:right; font-weight:bold;">Points: {{points.total}}</span>
+			<span style="color:white; float:right; font-weight:bold; position: absolute; top: 18px; right: 20px;">Points: {{points.total}}</span>
 		</div>
 	</nav>
 
@@ -143,7 +143,7 @@
 							  	<input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
 							  </div>
 							  <div class="form-group">
-							    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price" required>
+							    <input type="number" step=".01" class="form-control" id="price" placeholder="Price" name="price" min="0" required>
 							  </div>
 
 							  <select type="text" id="category" name="category" class="form-control">
@@ -163,7 +163,7 @@
 
 						<div id="accordion">
 						  <div>
-						  	<div class="badge badge-expense" id="food">Food</div>
+						  	<div class="badge badge-expense" style="background-color: #2780e3; color: white;" id="food">Food</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editFood" style="float:right;"></div>
 							<div class="badge badge-expense" id="food" style="float:right;">Budgeted ${{budgets.food}}</div>
 							<div class="badge badge-expense" id="food" style="float:right;">Spent ${{totals.food}}</div>
@@ -200,7 +200,7 @@
 							</li>
 						  </div>
 						 <div>
-						  	<div class="badge badge-expense" id="bills">Bills</div>
+						  	<div class="badge badge-expense" class="badge badge-expense" style="background-color: #3fb618; color: white;" id="bills">Bills</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editBills" style="float:right;"></div>
 							<div class="badge badge-expense" id="bills" style="float:right;">Budgeted ${{budgets.bills}}</div>
 							<div class="badge badge-expense" id="bills" style="float:right;">Spent ${{totals.bills}}</div>
@@ -234,7 +234,7 @@
 							</li>
 						  </div>
 						  <div>
-						  	<div class="badge badge-expense" id="utilities">Utilities</div>
+						  	<div class="badge badge-expense" style="background-color: #ff7518; color: white;"  id="utilities">Utilities</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editUtilities" style="float:right;"></div>
 							<div class="badge badge-expense" id="utilities" style="float:right;">Budgeted ${{budgets.utilities}}</div>
 							<div class="badge badge-expense" id="utilities" style="float:right;">Spent ${{totals.utilities}}</div>
@@ -270,7 +270,7 @@
 						  </div>
 
 						 <div>
-						  	<div class="badge badge-expense" id="travel">Travel</div>
+						  	<div class="badge badge-expense" style="background-color: #ff0039; color: white;" id="travel">Travel</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editTravel" style="float:right;"></div>
 							<div class="badge badge-expense" id="travel" style="float:right;">Budgeted ${{budgets.travel}}</div>
 							<div class="badge badge-expense" id="travel" style="float:right;">Spent ${{totals.travel}}</div>
@@ -306,7 +306,7 @@
 						  </div>
 
 						  <div>
-						  	<div class="badge badge-expense" id="education">Education</div>
+						  	<div class="badge badge-expense" style="background-color: #9954bb; color: white;" id="education">Education</div>
 						  	<div class="glyphicon glyphicon-pencil" id="editEducation" style="float:right;"></div>
 							<div class="badge badge-expense" id="education" style="float:right;">Budgeted ${{budgets.education}}</div>
 							<div class="badge badge-expense" id="education" style="float:right;;">Spent ${{totals.education}}</div>
