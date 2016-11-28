@@ -43,6 +43,8 @@ exports.addWishlist = function(req, res) {
     		"recommend" : "yes"
 	});
 
+	data.points.total = data.points.total + 5;
+
 	res.render('wishlist', wishlistJSON);
   res.redirect('wishlist');
 }
@@ -55,6 +57,8 @@ exports.updateBalance = function(req, res){
 	}
 	console.log("@@@@@");
 	console.log(balance);
+
+	data.points.total = data.points.total + 25;
 
 	data.bank.balance = balance;
 
@@ -94,6 +98,8 @@ exports.updateBudget = function(req, res){
 		data.budgets.education = budget;
 
 	}
+
+	data.points.total = data.points.total + 20;
 
 	data.bank.totalExpenses = data.budgets.food + data.budgets.bills + data.budgets.utilities + data.budgets.travel + data.budgets.education;
 
@@ -199,6 +205,7 @@ exports.addExpense = function(req, res) {
 
 		data.bank.balance -= price;
 	}
+	data.points.total = data.points.total + 5;
 	data.bank.totalPaidSoFar = Math.min(data.totals.food, data.budgets.food) + Math.min(data.totals.bills, data.budgets.bills) + Math.min(data.totals.utilities, data.budgets.utilities) + Math.min(data.totals.travel, data.budgets.travel) + Math.min(data.totals.education, data.budgets.education);
     console.log("data.bank.totalPaidSoFar: " + data.bank.totalPaidSoFar);
 	data.bank.unpaidExpenses = data.bank.totalExpenses - data.bank.totalPaidSoFar; 

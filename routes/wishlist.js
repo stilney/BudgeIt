@@ -11,6 +11,10 @@ exports.auth = function(req, res) {
 exports.viewWishlist = function(req, res){
 	exports.auth(req,res);
 
+  wishlistData.points.total = budgetData.points.total;
+
+
+
   var deficitSurplus = budgetData.bank.deficitSurplus;
   //console.log("DefSur" + deficitSurplus);
 

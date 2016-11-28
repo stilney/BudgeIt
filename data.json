@@ -42,6 +42,9 @@
 			"travel": 0.0,
 			"education": 0.0
 	},
+	"points": {
+			"total": 0
+	},
 	
 
       "total" : [],
